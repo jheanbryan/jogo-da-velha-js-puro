@@ -24,10 +24,14 @@ main{
   }
   
   .celula {
-    margin: 4px 4px;
+    position: relative;
+    margin: 4px;
     background-color: green;
     width: 90px;
     height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .oculto{
@@ -35,35 +39,26 @@ main{
   }
   
   
-  .celula.xis::before,
-  .celula.xis::after {
-    margin-top: 35px;
-    content: "";
-    height: 15px;
-    width: 90px;
-    background: white;
-    position: absolute;
-  }
-  
   .celula.xis::before{
-    transform: rotate(45deg);
+    content: "";
+    background-image: url('../assets/x.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
   }
   
-  .celula.xis::after {
-    transform: rotate(-45deg);
-  }
   
   /* circulo */
-  .celula.circulo::before,
-  .celula.circulo::after{
+  .celula.circulo::before{
     content: "";
-    margin-top: 10px;
-    margin-left: 10px;
-    height: 70px;
-    width: 70px;
-    background: white;
-    position: absolute;
-    border-radius: 50%;
+    background-image: url('../assets/o.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
   }
   
   .tabuleiro.circulo .celula:not(.xis):not(.circulo):hover::after{

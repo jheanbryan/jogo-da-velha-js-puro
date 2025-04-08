@@ -1,19 +1,19 @@
-let player1;
-let player2;
-let container = document.querySelector('.tabuleiro');
-let vezDe = 'x';
-container.classList.add(vezDe);
 
-let quadrados = document.querySelectorAll('.celula')
+let vezDe = 'x';
 let contador = 0;
+
+let container = document.querySelector('.tabuleiro');
+let quadrados = document.querySelectorAll('.celula')
+
+container.classList.add(vezDe);
 
 function jogar() {
   document.querySelector("[data-jogo]").classList.remove("oculto");
 }
 
 function joga(event){
-  player1 =  document.querySelector('#player1').value;
-  player2 = document.querySelector('#player2').valaue;
+  let player1 = document.querySelector('#player1').value;
+  let player2 = document.querySelector('#player2').value;
 
   let celulaClicada = event.target;
   contador++;
@@ -21,15 +21,17 @@ function joga(event){
 
   if (vezDe === 'x') {
     celulaClicada.classList.add('xis');   
+    container.classList.remove('xis');
     container.classList.add('circulo');
     vezDe = 'o';
-    verificaGanhador('xis', player1)
+    verificaGanhador('xis', player1);
 
-  } else{
-    celulaClicada.classList.add('circulo')
+  } else {
+    celulaClicada.classList.add('circulo');
+    container.classList.remove('circulo');
     container.classList.add('xis');
     vezDe = 'x';
-    verificaGanhador('circulo', player2)
+    verificaGanhador('circulo', player2);
   };
 };
 
@@ -43,6 +45,7 @@ function verificaGanhador(jogador, nickname) {
    && quadrados[2].classList.contains(jogador)) {
     travarJogo();
     window.alert(`O ganhador foi ${nickname}, que é o ${jogador}`)
+    return;
   } 
 
   if (quadrados[0].classList.contains(jogador)
@@ -50,6 +53,7 @@ function verificaGanhador(jogador, nickname) {
    && quadrados[6].classList.contains(jogador)) {
     travarJogo();
     window.alert(`O ganhador foi ${nickname}, que é o ${jogador}`)
+    return;
   } 
 
   if (quadrados[1].classList.contains(jogador)
@@ -57,6 +61,7 @@ function verificaGanhador(jogador, nickname) {
    && quadrados[7].classList.contains(jogador)) {
     travarJogo();
     window.alert(`O ganhador foi ${nickname}, que é o ${jogador}`)
+    return;
   } 
 
   if (quadrados[2].classList.contains(jogador)
@@ -64,6 +69,7 @@ function verificaGanhador(jogador, nickname) {
    && quadrados[8].classList.contains(jogador)) {
     travarJogo();
     window.alert(`O ganhador foi ${nickname}, que é o ${jogador}`)
+    return;
   } 
 
   if (quadrados[6].classList.contains(jogador)
@@ -71,6 +77,7 @@ function verificaGanhador(jogador, nickname) {
    && quadrados[8].classList.contains(jogador)) {
     travarJogo();
     window.alert(`O ganhador foi ${nickname}, que é o ${jogador}`)
+    return;
   } 
 
   if (quadrados[0].classList.contains(jogador)
@@ -78,6 +85,7 @@ function verificaGanhador(jogador, nickname) {
    && quadrados[8].classList.contains(jogador)) {
     travarJogo();
     window.alert(`O ganhador foi ${nickname}, que é o ${jogador}`)
+    return;
   } 
   
   if (quadrados[2].classList.contains(jogador)
@@ -85,6 +93,7 @@ function verificaGanhador(jogador, nickname) {
    && quadrados[6].classList.contains(jogador)) {
     travarJogo();
     window.alert(`O ganhador foi ${nickname}, que é o ${jogador}`)
+    return;
   }
 
   if (quadrados[3].classList.contains(jogador)
@@ -92,6 +101,7 @@ function verificaGanhador(jogador, nickname) {
    && quadrados[5].classList.contains(jogador)) {
     travarJogo();
     window.alert(`O ganhador foi ${nickname}, que é o ${jogador}`)
+    return;
   } 
 
   if (contador === 9) 
